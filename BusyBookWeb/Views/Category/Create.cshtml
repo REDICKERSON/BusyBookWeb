@@ -1,0 +1,49 @@
+﻿@model Category
+
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Create Category</h2>
+			<hr />
+		</div>
+
+		@* ----- Validation Summary ----- *@
+		<div asp-validation-summary="All"></div>
+
+		@* ----- Name Input ----- *@
+		<div class="mb-3">
+			<label asp-for="Name"></label>
+			<input asp-for="Name" class="form-control" />
+
+			@* ----- Server-side Validation -----*@
+			<span asp-validation-for="Name" class="text-danger" ></span>
+		</div>
+
+		@* ----- DisplayOrder Input ----- *@
+		<div class="mb-3">
+			<label asp-for="DisplayOrder"></label>
+			<input asp-for="DisplayOrder" class="form-control" />
+
+			@* ----- Server-side Validation -----*@
+			<span asp-validation-for="DisplayOrder" class="text-danger" ></span>
+		</div>
+
+		@* ///// Buttons ///// *@
+
+		@* ----- Create Button ----- *@
+		<button class="btn btn-primary p-2" type="submit" action="Create" style="width:125px">Create</button>
+		
+		@* ----- Back Button ----- *@
+		<a asp-controller="Category" asp-action="Index" class="btn btn-secondary p-2" style="width:125px">Back</a>
+
+	</div>
+
+</form>
+
+@*///// Client-side Validation /////*@
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
